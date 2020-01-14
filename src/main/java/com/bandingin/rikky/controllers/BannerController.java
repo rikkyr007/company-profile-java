@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bandingin.rikky.models.Banner;
 import com.bandingin.rikky.models.Features;
+import com.bandingin.rikky.models.WebSettings;
 import com.bandingin.rikky.services.BannerService;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -46,14 +47,19 @@ public class BannerController {
 		return bannerService.getById(id);
 	}
 	
-	@PostMapping("/banner")
+	@GetMapping("/banners/{status}")
+	public Banner getByStatus(@PathVariable("status") Integer status) {
+		return bannerService.getByStatus(status);
+	}
+	
+	@PostMapping("/banners")
 	public Banner insert(@RequestBody Banner bn) {
 		return bannerService.insert(bn);
 	}
 	
-	@PutMapping("/banner/{id}")
-	public Banner update(@PathVariable("id") Integer id, @RequestBody Banner bn) {
-		return bannerService.update(id, bn);
+	@PutMapping("/banners/{status}")
+	public Banner update(@PathVariable("status") Integer status, @RequestBody Banner banner) {
+		return bannerService.update(status, banner);
 	}
 	
 	@DeleteMapping("/banner/{id}")

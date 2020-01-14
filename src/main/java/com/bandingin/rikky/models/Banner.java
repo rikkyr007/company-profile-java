@@ -26,6 +26,9 @@ public class Banner {
 	@Column(name = "id", nullable = false, unique = true)
     private int id;
 	
+	@Column(name="status")
+	private Integer status;
+	
 	@Column(name = "banner_title", length = 25)
     @JsonView(DataTablesOutput.View.class)
     private String banner_title;
@@ -48,6 +51,14 @@ public class Banner {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	public String getBanner_title() {
@@ -81,5 +92,7 @@ public class Banner {
 	public void setBanner_image(String banner_image) {
 		this.banner_image = banner_image;
 	}
+
+	
 	
 }
