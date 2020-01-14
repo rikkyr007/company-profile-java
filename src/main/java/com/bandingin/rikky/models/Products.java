@@ -38,9 +38,9 @@ public class Products implements Serializable{
     @JsonView(DataTablesOutput.View.class)
     private String product_price;
 	
-	@Column(name = "products_image", length = 100)
+	@Column(name = "product_image", length = 100)
     @JsonView(DataTablesOutput.View.class)
-    private String products_image;
+    private String product_image;
 
 	public int getId() {
 		return id;
@@ -75,11 +75,11 @@ public class Products implements Serializable{
 	}
 
 	public String getProducts_image() {
-		return products_image;
+		return product_image;
 	}
 
 	public void setProducts_image(String products_image) {
-		this.products_image = products_image;
+		this.product_image = products_image;
 	}
 	
 	

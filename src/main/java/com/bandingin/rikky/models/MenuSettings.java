@@ -17,9 +17,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-@Table(name = "web_settings")
+@Table(name = "menu_management")
 @EntityListeners(AuditingEntityListener.class)
-public class WebSettings implements Serializable{
+public class MenuSettings implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(DataTablesOutput.View.class)

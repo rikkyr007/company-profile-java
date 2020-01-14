@@ -24,8 +24,8 @@ public class ProductsService {
 		return productsRepository.findAll(input);
 	}
 	
-	public Products insert(Products websettings) {
-		return productsRepository.save(websettings);
+	public Products insert(Products products) {
+		return productsRepository.save(products);
 	}
 	
 	public Optional<Products> getById(Integer id){

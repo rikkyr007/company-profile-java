@@ -18,46 +18,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bandingin.rikky.models.WebSettings;
-import com.bandingin.rikky.services.WebSettingsService;
+import com.bandingin.rikky.models.MenuSettings;
+import com.bandingin.rikky.services.MenuSettingsService;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
-public class WebSettingsController {
+public class MenuSettingsController {
 
 	@Autowired
-	WebSettingsService websettingsService;
+	MenuSettingsService menuSettingsService;
 	
 	@GetMapping("/list/menu")
 	@JsonView(DataTablesOutput.View.class)
-	public DataTablesOutput<WebSettings> listAll(@Valid DataTablesInput input){
-		return websettingsService.listAll(input);
+	public DataTablesOutput<MenuSettings> listAll(@Valid DataTablesInput input){
+		return menuSettingsService.listAll(input);
 	}
 	
 	@GetMapping("/menu")
-	public Iterable<WebSettings> getAll(){
-		return websettingsService.getAll();
+	public Iterable<MenuSettings> getAll(){
+		return menuSettingsService.getAll();
 	}
 	
 	@GetMapping("/menu/{id}")
-	public Optional<WebSettings> getById(@PathVariable("id") Integer id){
-		return websettingsService.getById(id);
+	public Optional<MenuSettings> getById(@PathVariable("id") Integer id){
+		return menuSettingsService.getById(id);
 	}
 	
 	@PostMapping("/menu")
-	public WebSettings insert(@RequestBody WebSettings ws) {
-		return websettingsService.insert(ws);
+	public MenuSettings insert(@RequestBody MenuSettings ws) {
+		return menuSettingsService.insert(ws);
 	}
 	
 	@PutMapping("/menu/{id}")
-	public WebSettings update(@PathVariable("id") Integer id, @RequestBody WebSettings ws) {
-		return websettingsService.update(id, ws);
+	public MenuSettings update(@PathVariable("id") Integer id, @RequestBody MenuSettings ws) {
+		return menuSettingsService.update(id, ws);
 	}
 	
 	@DeleteMapping("/menu/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
-		return websettingsService.delete(id);
+		return menuSettingsService.delete(id);
 	}
 }
