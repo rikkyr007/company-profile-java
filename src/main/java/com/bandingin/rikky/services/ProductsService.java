@@ -37,6 +37,7 @@ public class ProductsService {
 		ps.setProduct_name(products.getProduct_name());
 		ps.setProduct_description(products.getProduct_description());
 		ps.setProduct_price(products.getProduct_price());
+		ps.setProducts_image(products.getProducts_image());
 		Products update = productsRepository.save(ps);
 		return update;
 	}
