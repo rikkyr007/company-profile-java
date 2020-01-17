@@ -1,5 +1,6 @@
 package com.bandingin.rikky.services;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import javax.imageio.ImageIO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -22,12 +24,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+@Component
+@PropertySource("classpath:application.properties")
 @Service
 public class StorageService {
 	
+	public String PathImageName = "/opt/tomcat/webapps/assets/images";
+	public String PathFileName = "/opt/tomcat/webapps/assets/file";
+	
+	public StorageService(@Value("${app.init.isProduction}") Boolean production) {
+		if(production) {
+			 PathImageName = "/opt/tomcat/webapps/assets/images";
+			 PathFileName = "/opt/tomcat/webapps/assets/file";
+		}else {
+			 PathImageName = "C:\\images\\";
+			 PathFileName = "C:\\images\\";
+		}
+		System.out.println(PathImageName);
+	}
+	
 	Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocationImage = Paths.get("C://images/");
-    private final Path rootLocationFiles = Paths.get("C://images/");
+    private final Path rootLocationImage = Paths.get(PathImageName);
+    private final Path rootLocationFiles = Paths.get(PathFileName);
  
     public void store(MultipartFile file, String url, String hashName) {
         try {

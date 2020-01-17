@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
 import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +29,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 @RestController
 @RequestMapping("/api")
 public class BannerController {
+	
 	@Autowired
 	BannerService bannerService;
-	
+
 	@GetMapping("/list/banner")
 	@JsonView(DataTablesOutput.View.class)
 	public DataTablesOutput<Banner> listAll(@Valid DataTablesInput input){
