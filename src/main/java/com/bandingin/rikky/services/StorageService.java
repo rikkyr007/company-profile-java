@@ -29,8 +29,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class StorageService {
 	
-	public String PathImageName = "/opt/tomcat/webapps/assets/images";
-	public String PathFileName = "/opt/tomcat/webapps/assets/file";
+	public String PathImageName = "C:\\images\\";
+	public String PathFileName = "C:\\images\\";
 	
 	public StorageService(@Value("${app.init.isProduction}") Boolean production) {
 		if(production) {
@@ -40,7 +40,6 @@ public class StorageService {
 			 PathImageName = "C:\\images\\";
 			 PathFileName = "C:\\images\\";
 		}
-		System.out.println(PathImageName);
 	}
 	
 	Logger log = LoggerFactory.getLogger(this.getClass().getName());
