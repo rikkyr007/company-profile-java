@@ -46,17 +46,17 @@ public class AboutController {
 		return aboutService.getById(id);
 	}
 	
-	@GetMapping("/about/{status}")
+	@GetMapping("/abouts/{status}")
 	public About getByStatus(@PathVariable("status") Integer status) {
 		return aboutService.getByStatus(status);
 	}
 	
-	@PostMapping("/about")
+	@PostMapping("/abouts")
 	public About insert(@RequestBody About at) {
 		return aboutService.insert(at);
 	}
 	
-	@PutMapping("/about/{status}")
+	@PutMapping("/abouts/{status}")
 	public About update(@PathVariable("status") Integer status, @RequestBody About about) {
 		return aboutService.update(status, about);
 	}

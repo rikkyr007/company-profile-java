@@ -29,7 +29,7 @@ public class About {
 	@Column(name="status")
 	private Integer status;
 	
-	@Column(name = "about_description", length = 500)
+	@Column(name = "about_description", length = 5000)
     @JsonView(DataTablesOutput.View.class)
     private String about_description;
 

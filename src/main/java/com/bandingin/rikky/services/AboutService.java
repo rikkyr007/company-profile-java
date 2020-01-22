@@ -44,6 +44,7 @@ public class AboutService {
 		About at = aboutRepository.findByStatus(status);
 		if(at != null) {
 		at.setAbout_description(about.getAbout_description());
+		at.setStatus(about.getStatus());
 		About update = aboutRepository.save(at);
 		return update;
 		}else {
